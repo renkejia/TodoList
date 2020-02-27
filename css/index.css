@@ -6,6 +6,14 @@ body {
     font-family: Roboto, "Source Han Sans SC", "Noto Sans CJK SC", "WenQuanYi Zen Hei", sans-serif;
     font-size: 81.25%;
 }
+/* 隐藏 */
+.hide {
+    display: none;
+}
+/* 显示 */
+.show{
+    display: block;
+}
 /* header标签 */
 #header{
     margin: 0;
@@ -18,7 +26,7 @@ body {
 }
 /* 导航容器 */
 #nav {
-    width: 640px;
+    width: 1063px;
     margin: 0 auto;
     height: 60px;
     line-height: 60px;
@@ -200,4 +208,12 @@ body {
     color: #fff;
     border-radius: 6px;
     text-decoration: none;
+}
+/* foot */
+.footer{
+    width: 100%;
+    margin: 50px auto;
+}
+.footer p{
+    margin-left: 43%;
 }

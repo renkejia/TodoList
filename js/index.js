@@ -1,132 +1,88 @@
-//MVC 重构
-//获取表单
+//获取添加任务表单信息
 const form = document.querySelector('.wrap__form');
-//获取用户输入
+//获取添加任务信息
 const input = document.querySelector('.wrap__form__topic');
-//获取任务列表的ul标签
-const tasksUl = document.querySelector('.card-action__collection');
-//获取删除单个任务的a标签
-const deletTask = document.querySelector('.delete-item');
-//获取筛选输入
-const filterInput = document.getElementById('filter');
-// 清除任务按钮
+//获取清除任务按键
 const clearBtn = document.querySelector('.card-action__btn-clear');
+//获取任务列表
+const tasksUl = document.querySelector('.card-action__collection');
+//获取筛选任务输入
+const filterInput = document.querySelector('#filter');
 
-//存储数据
-let tasks = ['任务a', '任务b'];
+//数据
+let tasks = ['任务1','任务2'];
 
-//0.初始化
-function init() {
-    //显示数据
-    show(tasks);
-}
-init();
-//1.开始监听
-startListen();
-function show(data) {
+show(tasks);
+
+//参数data为数组
+function show(data){
     // 初始化列表内容
     tasksUl.innerHTML = '';
-    for (index in data) {
-        //1.生成
+    for( index in data ){
+        //1.添加
         let li = document.createElement('li');
-        li.className = 'collection-item';
-        li.innerHTML = data[index] + '<a class="delete-item" href="javascript:;">x</a>';
-
+        li.classList.add('collection-item');
+        li.innerHTML = data[index]+'<a class="delete-item" href="javascript:;">x</a>';
         //2.插入
         tasksUl.appendChild(li);
         input.value = '';
-
     }
 }
+// 初始化
 
-function startListen() {
-   //1.添加  --form表单提交
-    form.addEventListener('submit', addTask);
+// 1.开始监听
+startListen();
 
-    //2.删除单个任务  --鼠标点击
-    tasksUl.addEventListener('click', removeTask);
-
-    //3.清除所有任务  --鼠标点击
-    clearBtn.addEventListener('click', clearAllTasks);
-
-    //4.筛选任务  --按键松开
-    filterInput.addEventListener('keyup', filterTasks);
+function startListen(){
+    // 添加任务功能
+    form.addEventListener('submit',addTask);
+    // 删除单个任务
+    tasksUl.addEventListener('click',removeTask);
+    // 筛选任务
+    filterInput.addEventListener('keyup',filterTask);
+    // 清除任务
+    clearBtn.addEventListener('click',clearTasks);
 }
 
-//1.添加任务函数
-function addTask(e) {
-    
-    //0.输入内容
+function addTask(e){
+    //0.获取用户输入
     const newTask = input.value;
-    //判断是否已存在该数据
-    console.log(Boolean(tasks.indexOf(newTask)));
-    if(tasks.indexOf(newTask)==-1){
-        //添加数据
+    //判断数据中有无该任务
+    if(tasks.indexOf(newTask) == -1){
+        //添加数据到tasks
         tasks.unshift(newTask);
-        //渲染页面
         show(tasks);
     }else{
-        alert('存在该任务！');
+        alert('存在该任务');
+        input.value = '';
     }
-    
-    /*  在渲染数据阶段执行了
-    //1.生成
-    let li = document.createElement('li');
-    li.className = 'collection-item';
-    li.innerHTML = newTask + '<a class="delete-item" href="javascript:;">x</a>';
-    
-    //2.插入
-    tasksUl.appendChild(li);
-    */
-   //3.防止刷新
-   e.preventDefault();
-   addWindow.style.display = 'none';
+    //3.防止刷新
+    e.preventDefault();
+    addWindow.classList.remove('show');
+    addWindow.classList.add('hide');
 }
 
-//2.删除单个任务函数
-function removeTask(e) {
-    // console.log(event.target);
-    if (event.target.classList.contains('delete-item')) {
-        // console.log(en)
-        // event.target.parentNode.remove();
-        //获取单个任务在数据数组中的索引
-        let index = tasks.indexOf(e.target.parentNode.firstChild.textContent)
-        //从index开始删除一个
+function removeTask(e){
+    //删除数据中数据
+    // console.log(e.target.classList);
+    if(e.target.classList.contains('delete-item')){
+        let index = tasks.indexOf(e.target.firstChild.textContent);
+        //从index开始,删除一个元素
         tasks.splice(index,1);
         show(tasks);
     }
 }
+function filterTask(){
+    //获取筛选框输入
+    let filterText = filterInput.value.toLowerCase();
+    //筛选任务              数据数组tasks中忽略大小写，tasks中有没有筛选框中输入的内容filterText 
+    let filterTasks = tasks.filter(task => task.toLocaleLowerCase().includes(filterText))
+    show(filterTasks);
+}
 
-// 3.清除所有任务函数
-function clearAllTasks() {
-    // tasksUl.innerHTML = '';
-    //清空数据
+function clearTasks(){
+    if(confirm('确定清除任务列表吗')){
     tasks = [];
     show(tasks);
+    }
 }
-
-// 4.筛选任务函数
-function filterTasks(e) {
-    // console.log('aaaa');
-    //获取筛选框输入的内容
-    const filterText = filterInput.value.toLowerCase();
-    console.log(filterText);
-    //筛选任务              数据数组tasks中忽略大小写，tasks中有没有筛选框中输入的内容filterText 
-    let filterTasks = tasks.filter(task => task.toLocaleLowerCase().includes(filterText));
-    show(filterTasks);
-
-    // document.querySelectorAll('.collection-item').forEach(function (liList) {
-    //     //获取模糊框的输入内容               关闭大小写敏感
-    //     // console.log(liList.firstChild);
-    //     //获取li标签中的text
-    //     const item = liList.firstChild.textContent.toLowerCase();
-    //     //判断li标签的内容有没有filterText
-    //     if (item.indexOf(filterText) != -1) {
-    //         //如果包含
-    //         liList.classList.remove('hide');
-    //     } else {
-    //         liList.classList.add('hide');
-    //     }
-    // })
-}
-

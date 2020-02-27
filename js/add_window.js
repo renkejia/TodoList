@@ -21,7 +21,6 @@ window.onload = function(){
     var btnAdd = document.querySelector('#header__nav__btn-add');
     btnAdd.onclick = function(){
         createNew();
-        console.log('a');
     }
 }
 //使add-window设置为显示
