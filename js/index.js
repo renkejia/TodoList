@@ -34,7 +34,8 @@ function show(data) {
 
         //2.插入
         tasksUl.appendChild(li);
-        input.value = "";
+        input.value = '';
+
     }
 }
 
@@ -54,35 +55,32 @@ function startListen() {
 
 //1.添加任务函数
 function addTask(e) {
-    // console.log('a');    
-    //0.输入内容
     
+    //0.输入内容
     const newTask = input.value;
-    // console.log(newTask);
     //判断是否已存在该数据
-    // console.log(newTask);
-    // if(!tasks.findIndex(newTask)){
+    console.log(Boolean(tasks.indexOf(newTask)));
+    if(tasks.indexOf(newTask)==-1){
         //添加数据
         tasks.unshift(newTask);
         //渲染页面
         show(tasks);
-        // console.log('a');
-    // }else{
-        // alert('存在该任务！');
-    // }
-
+    }else{
+        alert('存在该任务！');
+    }
+    
     /*  在渲染数据阶段执行了
     //1.生成
     let li = document.createElement('li');
     li.className = 'collection-item';
     li.innerHTML = newTask + '<a class="delete-item" href="javascript:;">x</a>';
-
+    
     //2.插入
     tasksUl.appendChild(li);
     */
-    //3.防止刷新
-    e.preventDefault();
-    addWindow.style.display = 'none';
+   //3.防止刷新
+   e.preventDefault();
+   addWindow.style.display = 'none';
 }
 
 //2.删除单个任务函数
