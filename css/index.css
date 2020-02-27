@@ -1,0 +1,203 @@
+*{
+    margin: 0;
+}
+body {
+    background: #f1f1f1;
+    font-family: Roboto, "Source Han Sans SC", "Noto Sans CJK SC", "WenQuanYi Zen Hei", sans-serif;
+    font-size: 81.25%;
+}
+/* header标签 */
+#header{
+    margin: 0;
+    width: 100%;
+    height: 60px;
+    background-color: #3367d6;
+    position: fixed;
+    top: 0;
+    left: 0;
+}
+/* 导航容器 */
+#nav {
+    width: 640px;
+    margin: 0 auto;
+    height: 60px;
+    line-height: 60px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    position: relative;
+}
+/* TodoList标题 */
+#header__nav-title{
+    color: #fff;
+    margin: 0;
+    display: inline;
+}
+/* 新建事件按钮 */
+#header__nav__btn-add{
+    position: absolute;
+    background-color: rgb(66, 133, 244);
+    right: 0;
+    width: 120px;
+    height: 40px;
+    font-size: 14px;
+    border: 2px;
+    color: #fff;
+    border-radius: 6px;
+}
+/* 新建按钮：伪类 */
+#header__nav__btn-add:hover{
+    box-shadow: 2px 2px 5px black;
+}
+/* 添加事件窗口容器 */
+.add-window{
+    position: absolute;
+    top: 0;
+}
+/* 点击添加任务窗口后的背景颜色 */
+.background{
+    opacity: 0.55;
+    background-color: black;
+    z-index: 1;
+}
+/* 添加任务窗口内容容器 */
+.wrap{
+    width: 640px;
+    height: 180px;
+    margin: 0 auto;
+    position: absolute;
+    top:25%;
+    background-color:#fff;
+    left: 30%;
+    box-shadow: 0 5px 38px -8px black;
+    z-index: 3;
+}
+/* 添加任务窗口蓝条 */
+.wrap__blue{
+    width: 100%;
+    height: 5px;
+    background: #3367d6;
+}
+/* 添加任务窗口标题 */
+.wrap__title{
+    margin-bottom: 20px;
+}
+/* 添加任务窗口表单 */
+.wrap__form{
+    margin: 0;
+    padding: 20px;
+}
+/* 添加任务窗口输入框 */
+.wrap__form__topic{
+    width: 100%;
+    padding: 5px;
+    margin-bottom: 10px;
+    background-color: transparent;
+    border: none;
+    border-bottom: 1px solid #9e9e9e;
+    border-radius: 0;
+    outline: none;
+    color: #a8adba;
+    outline: none;
+
+}
+
+.wrap__form__topic:focus{
+    box-shadow: 0 1px 1px rgb(66, 133, 244);
+}
+/* 添加任务窗口按键 */
+.wrap__form__buttons{
+    width: 100%;
+    position: relative;
+    margin-top: 20px;
+}
+/* 添加任务窗口确认按钮 */
+.wrap__form__button-submit{
+    width: 94px;
+    height: 38px;
+    color: #fff;
+    text-align: center;
+    border: 1px solid rgb(66, 133, 244);
+    border-radius: 2px;
+    background: rgb(66, 133, 244);
+    position: absolute;
+    left: 8%;
+}
+/* 添加任务窗口取消按钮 */
+.wrap__form__button-cancel{
+    width: 94px;
+    height: 38px;
+    color: #fff;
+    text-align: center;
+    border-radius: 2px;
+    border: 1px solid rgb(66, 133, 244);
+    background: rgb(66, 133, 244);
+    position: absolute;
+    right: 10%;
+    bottom: 8%;
+}
+
+/* 我的任务容器 */
+.card-action {
+    width: 1063px;
+    padding: 16px 24px;
+    position: relative;
+    margin: 70px auto 0 auto;
+    z-index: 3;
+}
+/* 任务列表ul标签 */
+.card-action__collection{
+    position: relative;
+}
+/* 我的任务标题标签 */
+.task-title {
+    margin: 6px auto 10px auto;
+    font-weight: 400;
+    font-size: 1.64rem;
+}
+/* 筛选框的div */
+.input-field {
+    width: 100%;
+}
+/* 单个任务的li标签 */
+.collection-item{
+    font-size: 18px;
+    margin: 20px auto;
+    padding: 10px;
+    background-color: #9e9e9e28;
+    list-style: none;
+}
+/* 单个任务删除键 */
+.delete-item{
+    text-decoration: none;
+    color: rgb(172, 141, 2);
+    position: absolute;
+    right: 40px;
+}
+.delete-item:hover{
+    color:  rgb(255, 253, 148);
+}
+/* 筛选任务输入框 */
+#filter {
+    background-color: transparent;
+    border: none;
+    border-bottom: 1px solid #9e9e9e;
+    border-radius: 0;
+    outline: none;
+    height: 48px;
+    line-height: 48px;
+    width: 100%;
+    font-size: 18px;
+    margin: 0 0 20px 0;
+}
+/* 清除任务代码 */
+.card-action__btn-clear {
+    background-color: rgb(66, 133, 244);
+    width: 120px;
+    height: 40px;
+    font-size: 14px;
+    border: 2px;
+    color: #fff;
+    border-radius: 6px;
+    text-decoration: none;
+}

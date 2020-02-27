@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="./css/index.css">
+    <style>
+        .hide {
+            display: none;
+        }
+        .show{
+            display: block;
+        }
+    </style>
+</head>
+
+<body>
+    <div id="main-container">
+    <!-- 导航栏模块 -->
+        <header id="header">
+            <nav id="nav">
+                <h1 id="header__nav-title">TodoList</h1>
+                <button class="button" id="header__nav__btn-add">新建事项</button>
+            </nav>
+        </header>
+
+    <!-- 任务显示模块 -->
+        <div class="card-action">
+            <h5 class="task-title">我的任务</h5>
+            <div class="input-field">
+                <input type="text" name="filter" id="filter" placeholder="筛选任务">
+            </div>
+            <ul class="card-action__collection">
+                <!-- <li class="collection-item">任务 1<a class="delete-item" href="javascript:;">x</a></li>
+                <li class="collection-item">任务 2<a class="delete-item" href="javascript:;">x</a></li> -->
+            </ul>
+            <button class="card-action__btn-clear">清除任务</button>
+        </div>
+    <!-- 添加任务窗口 -->
+        <div class="add-window hide">
+            <div class="background"></div>
+            <div class="wrap">
+                <!-- 表头的蓝条 -->
+                <div class="wrap__blue"></div>
+                <!-- 表单 -->
+                <form class="wrap__form">
+                    <h2 class="wrap__title">新的任务</h2>
+                    <input class="wrap__form__topic" type="text" placeholder="新的任务" name="topic" required="required"
+                        max="60" />
+                    <div class="wrap__form__buttons">
+                        <input class="wrap__form__button-submit" id="submit" type="submit" value="添加任务" name="submit" />
+                    </div>
+                </form>
+                <button class="wrap__form__button-cancel" id="cancel">取消</button>
+            </div>
+        </div>
+
+        <footer>
+
+        </footer>
+    </div>
+</body>
+<script src="./js/add_window.js"></script>
+<script src="./js/index.js"></script>
+
+</html>
