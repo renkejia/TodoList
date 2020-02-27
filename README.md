@@ -9,16 +9,16 @@
 - JavaScript
 
 ### 项目目录结构
-TodoList/ 
-├─css/
-│    └── index.css
-├──img/
-│     └──添加界面.PNG
-│     └──显示界面.PNG
-├─js/ 
-│   └──add_window.js
-│   └──index.js
-├── index.html
+TodoList/<br> 
+├─css/<br>
+│    └── index.css<br>
+├──img/<br>
+│     └──添加界面.png<br>
+│     └──显示界面.png<br>
+├─js/ <br>
+│   └──add_window.js<br>
+│   └──index.js<br>
+├── index.html<br>
 └── README.md
 
 ###简单介绍   
